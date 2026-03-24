@@ -31,6 +31,7 @@ body {
     line-height: 1.6;
     background-color: var(--bg-color);
     overflow-x: hidden;
+    word-break: keep-all; /* Prevent natural character breaking in Korean */
 }
 
 body.no-scroll {
@@ -380,7 +381,7 @@ body {
 }
 
 .hero-text-box {
-    max-width: 700px;
+    max-width: 900px; /* Increased to avoid character orphans */
 }
 
 .hero-title {
@@ -479,6 +480,9 @@ body {
 /* Title Component */
 .section-title {
     margin-bottom: 60px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .section-title .title {
@@ -575,10 +579,11 @@ body {
 }
 
 .philosophy .title {
-    font-size: 2.2rem;
+    font-size: 2.5rem; /* Slightly larger */
     font-weight: 700;
-    line-height: 1.4;
+    line-height: 1.5;
     margin-bottom: 30px;
+    word-break: keep-all;
 }
 
 .philosophy .desc {
