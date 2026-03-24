@@ -203,7 +203,7 @@ ul {
     min-height: 600px;
     display: flex;
     align-items: center;
-    background: url('https://images.unsplash.com/photo-1549488344-1f9b8d2bd1f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+    background: url('images/sky_space_hero.png') center/cover no-repeat;
 }
 
 .hero-overlay {
