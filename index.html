@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <meta name="naver-site-verification" content="68be9b0c7437df7e92fdc4065c3407d47d9ea74c" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 </head>
 <body>
     <!-- Header -->
@@ -33,7 +34,15 @@
                 </ul>
             </nav>
             <div class="header-actions">
-                <div id="google_translate_element" class="translate-box"></div>
+                <div class="lang-switcher-3d">
+                    <div id="google_translate_element" style="display:none !important;"></div>
+                    <div class="lang-selection">
+                        <div class="lang-active-bg"></div>
+                        <button class="lang-btn" data-lang="en">ENGLISH</button>
+                        <button class="lang-btn" data-lang="zh-CN">中文</button>
+                        <button class="lang-btn" data-lang="ko">한국어</button>
+                    </div>
+                </div>
                 <div class="mobile-menu-btn">
                     <i class="fa-solid fa-bars"></i>
                 </div>
@@ -127,11 +136,25 @@
                         <h3>반려동물 관련 사업</h3>
                         <p class="b-lead">하스펫(Haspet)을 통해 프리미엄 반려동물 라이프스타일을 제안합니다.</p>
                         <ul class="b-list">
-                            <li><i class="fa-solid fa-check text-gradient"></i> <strong>프리미엄 펫 가구:</strong> 쇼파, 침대, 카시트 등</li>
-                            <li><i class="fa-solid fa-check text-gradient"></i> <strong>펫 식품류:</strong> 건강을 생각한 사료 및 간식</li>
-                            <li><i class="fa-solid fa-check text-gradient"></i> <strong>펫 인테리어:</strong> 안전한 시설 및 전용 자재</li>
-                            <li><i class="fa-solid fa-check text-gradient"></i> <strong>주요 브랜드:</strong> 하스펫</li>
+                            <li><i class="fa-solid fa-check text-gradient"></i> <strong>프리미엄 펫 가구:</strong> 쁘띠 쇼파, 하이엔드 침대, 드라이브 카시트 등</li>
+                            <li><i class="fa-solid fa-check text-gradient"></i> <strong>펫 라이프스타일:</strong> 건강을 생각한 수제 사료 및 저자극 어메니티</li>
+                            <li><i class="fa-solid fa-check text-gradient"></i> <strong>AI 스마트 공간:</strong> 반려동물의 관절과 활동성을 고려한 맞춤형 환경</li>
+                            <li><i class="fa-solid fa-check text-gradient"></i> <strong>대표 브랜드:</strong> 하스펫 (HASPET)</li>
                         </ul>
+                        <div class="product-preview-gallery">
+                            <div class="p-preview-item">
+                                <span class="p-tag">PETIT SOFA</span>
+                                <h4>프리미엄 쁘띠 쇼파</h4>
+                            </div>
+                            <div class="p-preview-item">
+                                <span class="p-tag">DRIVE SEAT</span>
+                                <h4>럭셔리 드라이브 카시트</h4>
+                            </div>
+                            <div class="p-preview-item">
+                                <span class="p-tag">PET MAT</span>
+                                <h4>저자극 프리미엄 매트</h4>
+                            </div>
+                        </div>
                     </div>
                     <div class="b-image image-pet"></div>
                 </div>

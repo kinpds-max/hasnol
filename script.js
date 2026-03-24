@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     mobileBtn.addEventListener('click', () => {
         navList.classList.toggle('active');
+        document.body.classList.toggle('no-scroll');
         const icon = mobileBtn.querySelector('i');
         if(navList.classList.contains('active')) {
             icon.classList.remove('fa-bars');
@@ -30,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
             navList.classList.remove('active');
+            document.body.classList.remove('no-scroll');
             mobileBtn.querySelector('i').classList.remove('fa-xmark');
             mobileBtn.querySelector('i').classList.add('fa-bars');
         });
@@ -69,4 +71,41 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById(target).classList.add('active');
         });
     });
+
+    // 5. 3D Language Switcher Logic
+    const langBtns = document.querySelectorAll('.lang-btn');
+    
+    // Set initial active state (Default is Korean)
+    const setActiveLang = (langCode) => {
+        langBtns.forEach(btn => {
+            if(btn.getAttribute('data-lang') === langCode) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+    };
+
+    // Trigger Google Translate
+    const translatePage = (langCode) => {
+        const googleSelect = document.querySelector('.goog-te-combo');
+        if (googleSelect) {
+            googleSelect.value = langCode;
+            googleSelect.dispatchEvent(new Event('change'));
+        } else {
+            // If google translate is not ready, try again in 500ms
+            setTimeout(() => translatePage(langCode), 500);
+        }
+    };
+
+    langBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const lang = btn.getAttribute('data-lang');
+            setActiveLang(lang);
+            translatePage(lang);
+        });
+    });
+
+    // Initialize as Korean
+    setActiveLang('ko');
 });
