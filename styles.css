@@ -864,7 +864,7 @@ body {
 
 @keyframes scrollCerts {
     0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-250px * 6 - 40px * 6)); }
+    100% { transform: translateX(calc(-250px * 7 - 40px * 7)); }
 }
 
 .cert-grid::-webkit-scrollbar {
