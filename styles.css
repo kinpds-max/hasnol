@@ -842,13 +842,29 @@ body {
     padding: 60px 0;
 }
 
+.cert-scroll-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    padding: 20px 0;
+}
+
 .cert-grid {
     display: flex;
-    justify-content: center;
     gap: 40px;
-    flex-wrap: nowrap; /* Keep in one row for premium look */
-    overflow-x: auto;
-    padding-bottom: 20px;
+    flex-wrap: nowrap;
+    width: max-content;
+    animation: scrollCerts 35s linear infinite;
+}
+
+.cert-grid:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scrollCerts {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-250px * 6 - 40px * 6)); }
 }
 
 .cert-grid::-webkit-scrollbar {
