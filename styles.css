@@ -1422,7 +1422,7 @@ body {
 /* Floating Language Selector (REAL SYSTEM) */
 .lang-selector-floating {
     position: fixed;
-    bottom: 90px;
+    bottom: 105px;
     right: 25px;
     z-index: 9999;
 }
@@ -1504,5 +1504,15 @@ body {
     .lang-selector-floating {
         bottom: 100px;
         right: 15px;
+    }
+    .kakao-float-btn {
+        right: 15px;
+        bottom: 25px;
+        width: 55px;
+        height: 55px;
+    }
+    .lang-trigger {
+        width: 55px;
+        height: 55px;
     }
 }
