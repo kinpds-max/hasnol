@@ -106,6 +106,40 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Initialize as Korean
-    setActiveLang('ko');
+    // 6. Certification Modal (Lightbox) Logic
+    const certModal = document.getElementById('certModal');
+    const modalImg = document.getElementById('modalImg');
+    const modalClose = document.querySelector('.modal-close');
+    const certItems = document.querySelectorAll('.cert-item');
+
+    certItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const imgSrc = item.getAttribute('data-cert-img');
+            if (imgSrc) {
+                modalImg.src = imgSrc;
+                certModal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevent scroll
+            }
+        });
+    });
+
+    const closeModal = () => {
+        certModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+        setTimeout(() => {
+            modalImg.src = "";
+        }, 400);
+    };
+
+    modalClose.addEventListener('click', closeModal);
+    certModal.addEventListener('click', (e) => {
+        if (e.target === certModal) closeModal();
+    });
+
+    // ESC key to close modal
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && certModal.classList.contains('active')) {
+            closeModal();
+        }
+    });
 });
