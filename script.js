@@ -32,8 +32,10 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', () => {
             navList.classList.remove('active');
             document.body.classList.remove('no-scroll');
-            mobileBtn.querySelector('i').classList.remove('fa-xmark');
-            mobileBtn.querySelector('i').classList.add('fa-bars');
+            if(mobileBtn.querySelector('i')) {
+                mobileBtn.querySelector('i').classList.remove('fa-xmark');
+                mobileBtn.querySelector('i').classList.add('fa-bars');
+            }
         });
     });
 
@@ -53,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     window.addEventListener('scroll', revealFunction);
-    revealFunction(); // trigger on load
+    revealFunction(); 
 
     // 4. Tabs Functionality
     const tabBtns = document.querySelectorAll('.tab-btn');
@@ -61,80 +63,133 @@ document.addEventListener('DOMContentLoaded', () => {
 
     tabBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            // Remove active class from all
             tabBtns.forEach(b => b.classList.remove('active'));
             tabContents.forEach(c => c.classList.remove('active'));
-
-            // Add active class to clicked
             btn.classList.add('active');
             const target = btn.getAttribute('data-target');
-            document.getElementById(target).classList.add('active');
+            if(document.getElementById(target)) document.getElementById(target).classList.add('active');
         });
     });
 
-    // 5. Robust Multilingual Overhaul
-    const langBtns = document.querySelectorAll('.lang-btn');
-    
-    const setActiveLang = (langCode) => {
-        langBtns.forEach(btn => {
-            if(btn.getAttribute('data-lang') === langCode) {
-                btn.classList.add('active');
-            } else {
-                btn.classList.remove('active');
-            }
-        });
-    };
-
-    const triggerTranslation = (langCode) => {
-        const googleSelect = document.querySelector('.goog-te-combo');
-        if (googleSelect) {
-            googleSelect.value = langCode;
-            googleSelect.dispatchEvent(new Event('change'));
-            
-            // Re-trigger for mobile stability
-            setTimeout(() => {
-                if (googleSelect.value !== langCode) {
-                    googleSelect.value = langCode;
-                    googleSelect.dispatchEvent(new Event('change'));
-                }
-            }, 300);
-        } else {
-            // Wait for Google Translate Engine to wake up
-            const waitMsg = document.createElement('div');
-            waitMsg.id = "trans-loading";
-            waitMsg.innerHTML = "Translating page...";
-            waitMsg.style = "position:fixed; bottom:20px; left:20px; background:rgba(0,0,0,0.8); color:white; padding:10px 20px; border-radius:30px; z-index:99999; font-size:12px;";
-            if(!document.getElementById('trans-loading')) document.body.appendChild(waitMsg);
-            
-            setTimeout(() => {
-                triggerTranslation(langCode);
-                if(document.getElementById('trans-loading')) document.getElementById('trans-loading').remove();
-            }, 1000);
+    // 5. REAL Custom Translation System (KO, EN, ZH)
+    const translations = {
+        ko: {
+            nav_about: "기업소개",
+            nav_philosophy: "핵심가치",
+            nav_business: "주요사업",
+            nav_platform: "플랫폼",
+            nav_certs: "인증서",
+            hero_badge: "하늘공간 창조 기업",
+            hero_title_1: "하늘공간을 창조하는",
+            hero_title_2: "테크놀로지",
+            hero_desc: "단순한 장소를 넘어, 사람과 삶, 그리고 소중한 반려동물이 공존하는 가치 있는 공간을 만듭니다. 하늘공간에서 즐겁게 놀자, HASNOL.",
+            hero_btn_1: "자세히 보기",
+            hero_btn_2: "사업 분야",
+            about_title: "하스놀 기업소개",
+            about_subtitle: "하늘 + 스페이스 + 놀자",
+            about_card_1_h: "하늘",
+            about_card_1_p: "높은 이상과 숭고한 가치를 지향하며, 무한한 가능성을 상징합니다.",
+            about_card_2_h: "스페이스",
+            about_card_2_p: "단순한 장소를 넘어, 사람과 삶이 공존하는 가치 있는 공간을 창조합니다.",
+            about_card_3_h: "놀자",
+            about_card_3_p: "혁신적인 기술력(Technology)을 바탕으로 즐겁게 일하며 끊임없이 도전합니다."
+        },
+        en: {
+            nav_about: "About",
+            nav_philosophy: "Philosophy",
+            nav_business: "Business",
+            nav_platform: "Platform",
+            nav_certs: "Certs",
+            hero_badge: "Sky Space Creation",
+            hero_title_1: "Technology Creating",
+            hero_title_2: "Sky Spaces",
+            hero_desc: "Beyond simple places, we create valuable spaces where people, life, and precious pets coexist. Let's play in sky space, HASNOL.",
+            hero_btn_1: "View Details",
+            hero_btn_2: "Business Sectors",
+            about_title: "About HASNOL",
+            about_subtitle: "Sky + Space + Play",
+            about_card_1_h: "SKY",
+            about_card_1_p: "Aiming for high ideals and noble values, symbolizing infinite possibilities.",
+            about_card_2_h: "SPACE",
+            about_card_2_p: "Beyond simple locations, we create valuable spaces where life and people coexist.",
+            about_card_3_h: "PLAY",
+            about_card_3_p: "Constantly challenging based on innovative technology and joyful work."
+        },
+        zh: {
+            nav_about: "关于企业",
+            nav_philosophy: "核心价值",
+            nav_business: "主要业务",
+            nav_platform: "平台",
+            nav_certs: "认证",
+            hero_badge: "创造天空空间的企业",
+            hero_title_1: "创造天空空间的",
+            hero_title_2: "技术",
+            hero_desc: "超越简单的场所, 创造人, 生活, 以及珍贵的宠物共存的有价值的空间。在天空空间愉快地玩耍吧, HASNOL。",
+            hero_btn_1: "查看详情",
+            hero_btn_2: "业务领域",
+            about_title: "HASNOL 企业介绍",
+            about_subtitle: "天空 + 空间 + 玩耍",
+            about_card_1_h: "天空",
+            about_card_1_p: "志向高远的理想和崇高的价值, 象征着无限的可能性。",
+            about_card_2_h: "空间",
+            about_card_2_p: "超越简单的场所, 创造人与生活共存的有价值的空间。",
+            about_card_3_h: "技术/玩耍",
+            about_card_3_p: "以创新的技术为基础, 愉快地工作并不断挑战。"
         }
     };
 
-    langBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const lang = btn.getAttribute('data-lang');
-            setActiveLang(lang);
-            triggerTranslation(lang);
+    const switchLanguage = (lang) => {
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang] && translations[lang][key]) {
+                el.innerText = translations[lang][key];
+            }
+        });
+        document.getElementById('current-lang-label').innerText = lang.toUpperCase();
+        localStorage.setItem('hasnol_lang', lang);
+    };
+
+    // Lang Selector Floating Logic
+    const langTrigger = document.querySelector('.lang-trigger');
+    const langOptions = document.querySelector('.lang-options');
+    const langOpts = document.querySelectorAll('.lang-opt');
+
+    if (langTrigger) {
+        langTrigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langOptions.classList.toggle('active');
+        });
+    }
+
+    langOpts.forEach(opt => {
+        opt.addEventListener('click', () => {
+            const lang = opt.getAttribute('data-lang');
+            switchLanguage(lang);
+            langOptions.classList.remove('active');
         });
     });
 
-    // 6. Certification Modal (Lightbox) Logic - Grid & Scroll Support
+    document.addEventListener('click', () => {
+        if(langOptions) langOptions.classList.remove('active');
+    });
+
+    // Load Saved Language
+    const savedLang = localStorage.getItem('hasnol_lang') || 'ko';
+    switchLanguage(savedLang);
+
+    // 6. Certification Modal (Lightbox) Logic
+    // (Re-adding lost modal logic if necessary, though it should be here)
     const certModal = document.getElementById('certModal');
     const modalImg = document.getElementById('modalImg');
     const modalClose = document.querySelector('.modal-close');
-    
-    // Select both cert-items AND archive-items
     const allCertTriggers = document.querySelectorAll('.cert-item, .archive-item');
 
     allCertTriggers.forEach(item => {
         item.addEventListener('click', () => {
             const imgSrc = item.getAttribute('data-cert-img');
             if (imgSrc) {
-                modalImg.src = imgSrc;
-                certModal.classList.add('active');
+                if(modalImg) modalImg.src = imgSrc;
+                if(certModal) certModal.classList.add('active');
                 document.body.style.overflow = 'hidden'; 
             }
         });
@@ -150,13 +205,4 @@ document.addEventListener('DOMContentLoaded', () => {
     if (certModal) certModal.addEventListener('click', (e) => {
         if (e.target === certModal) closeModal();
     });
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && certModal && certModal.classList.contains('active')) {
-            closeModal();
-        }
-    });
-
-    // Default Language Persistence (Optional)
-    setActiveLang('ko');
 });

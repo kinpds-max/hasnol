@@ -1418,3 +1418,91 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
+/* Floating Language Selector (REAL SYSTEM) */
+.lang-selector-floating {
+    position: fixed;
+    bottom: 90px;
+    right: 25px;
+    z-index: 9999;
+}
+
+.lang-trigger {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--blue-gradient);
+    border: none;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 800;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0, 114, 255, 0.4);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.lang-trigger i {
+    font-size: 1.2rem;
+    margin-bottom: 2px;
+}
+
+.lang-trigger:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 15px 35px rgba(0, 114, 255, 0.6);
+}
+
+.lang-selector-floating .lang-options {
+    position: absolute;
+    bottom: 75px;
+    right: 0;
+    background: rgba(20, 20, 20, 0.8);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 10px;
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 150px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    transform-origin: bottom right;
+    animation: slideUpIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.lang-selector-floating .lang-options.active {
+    display: flex;
+}
+
+.lang-opt {
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 12px 20px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.lang-opt:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: var(--vivid-sky-blue);
+}
+
+@keyframes slideUpIn {
+    from { transform: translateY(20px) scale(0.9); opacity: 0; }
+    to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+    .lang-selector-floating {
+        bottom: 100px;
+        right: 15px;
+    }
+}
