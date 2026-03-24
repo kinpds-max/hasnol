@@ -260,11 +260,11 @@ ul {
     top: 6px;
     left: 6px;
     height: calc(100% - 12px);
-    background: linear-gradient(135deg, var(--primary-color), #00c6ff);
+    background: linear-gradient(135deg, #0088cc, #00c6ff); /* Vivid Sky Blue Gradient */
     border-radius: 25px;
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     z-index: 1;
-    box-shadow: 0 4px 15px rgba(0, 136, 204, 0.4);
+    box-shadow: 0 4px 15px rgba(0, 136, 204, 0.5);
 }
 
 /* Adjust active background width/position dynamically via JS or specific classes */
