@@ -272,7 +272,7 @@ ul {
 .lang-btn[data-lang="zh-CN"].active ~ .lang-active-bg { width: 65px; left: 96px; }
 .lang-btn[data-lang="ko"].active ~ .lang-active-bg { width: 75px; left: 166px; }
 
-/* Scrolled Header State */
+/* Scrolled Header State & Mobile Default Visibility */
 .header.scrolled .lang-selection {
     background: rgba(0, 136, 204, 0.05);
     border-color: rgba(0, 136, 204, 0.1);
@@ -284,6 +284,19 @@ ul {
 
 .header.scrolled .lang-btn.active {
     color: white;
+}
+
+@media (max-width: 768px) {
+    .lang-selection {
+        background: rgba(0, 136, 204, 0.05) !important;
+        border-color: rgba(0, 136, 204, 0.1) !important;
+    }
+    .lang-btn {
+        color: var(--secondary-color) !important;
+    }
+    .lang-btn.active {
+        color: white !important;
+    }
 }
 
 /* Google Translate Hidden Styles */
@@ -832,11 +845,23 @@ body {
 .cert-grid {
     display: flex;
     justify-content: center;
-    gap: 60px;
-    flex-wrap: wrap;
+    gap: 40px;
+    flex-wrap: nowrap; /* Keep in one row for premium look */
+    overflow-x: auto;
+    padding-bottom: 20px;
+}
+
+.cert-grid::-webkit-scrollbar {
+    display: none;
 }
 
 .cert-item {
+    flex: 0 0 250px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    padding: 30px 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(255,255,255,0.2);
     color: white;
     display: flex;
     flex-direction: column;
