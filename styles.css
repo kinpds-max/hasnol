@@ -154,19 +154,51 @@ ul {
 
 /* Google Translate Widget Override */
 .translate-box {
+    position: relative;
     margin-right: 10px;
 }
 
-.translate-box select {
-    background-color: rgba(255, 255, 255, 0.15);
+.translate-box::after {
+    content: '▼';
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
     color: white;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 0.9rem;
+    font-size: 0.65rem;
+    pointer-events: none;
+    transition: color 0.3s;
+}
+
+.translate-box select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(10px);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.1), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.5), 
+        inset 0 -1px 2px rgba(0, 0, 0, 0.2);
+    padding: 8px 30px 8px 15px;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 600;
     font-family: var(--font-body);
     outline: none;
     cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.translate-box select:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 8px 20px rgba(0, 0, 0, 0.15), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.6), 
+        inset 0 -1px 2px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.1));
 }
 
 .translate-box select option {
@@ -175,9 +207,21 @@ ul {
 }
 
 .header.scrolled .translate-box select {
-    background-color: white;
+    background: linear-gradient(145deg, #ffffff, #f0f4f8);
     color: var(--secondary-color);
     border: 1px solid var(--border-color);
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.05),
+        inset 0 1px 0 #ffffff, 
+        inset 0 -2px 5px rgba(0, 0, 0, 0.03);
+}
+
+.header.scrolled .translate-box select:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.header.scrolled .translate-box::after {
+    color: var(--secondary-color);
 }
 
 .goog-te-gadget {
