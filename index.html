@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하스놀 주식회사 | HASNOL</title>
+    <meta name="description" content="하늘공간을 창조하는 하스놀 주식회사입니다. 하늘스페이스 테크놀로지, 반려동물제조업, 마무리건설업">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <span class="logo-icon"><i class="fa-solid fa-cloud"></i></span>
+                <span class="logo-text">HASNOL</span>
+            </a>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="#about" class="nav-link">기업소개</a></li>
+                    <li><a href="#philosophy" class="nav-link">핵심가치</a></li>
+                    <li><a href="#business" class="nav-link">주요사업</a></li>
+                    <li><a href="#platform" class="nav-link">플랫폼</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="hero-text-box">
+                <span class="badge fade-up">하늘공간 창조 기업</span>
+                <h1 class="hero-title fade-up delay-1">
+                    하늘공간을 창조하는<br>
+                    <span class="text-gradient">테크놀로지</span>
+                </h1>
+                <p class="hero-desc fade-up delay-2">
+                    단순한 장소를 넘어, 사람과 삶, 그리고 소중한 반려동물이 공존하는 가치 있는 공간을 만듭니다. 하늘공간에서 즐겁게 놀자, HASNOL.
+                </p>
+                <div class="hero-btns fade-up delay-3">
+                    <a href="#about" class="btn btn-primary">자세히 보기</a>
+                    <a href="#business" class="btn btn-outline">사업 분야</a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span class="mouse">
+                <span class="wheel"></span>
+            </span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section" id="about">
+        <div class="container">
+            <div class="section-title text-center reveal">
+                <h2 class="title">하스놀 기업소개</h2>
+                <p class="subtitle">하늘 + 스페이스 + 놀자</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card reveal">
+                    <div class="card-icon"><i class="fa-solid fa-cloud"></i></div>
+                    <h3>하늘 <span class="en">SKY</span></h3>
+                    <p>높은 이상과 숭고한 가치를 지향하며, 무한한 가능성을 상징합니다.</p>
+                </div>
+                <div class="about-card reveal delay-1">
+                    <div class="card-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <h3>스페이스 <span class="en">SPACE</span></h3>
+                    <p>단순한 장소를 넘어, 사람과 삶이 공존하는 가치 있는 공간을 창조합니다.</p>
+                </div>
+                <div class="about-card reveal delay-2">
+                    <div class="card-icon"><i class="fa-solid fa-paper-plane"></i></div>
+                    <h3>놀자 <span class="en">TECNOL</span></h3>
+                    <p>혁신적인 기술력(Technology)을 바탕으로 즐겁게 일하며 끊임없이 도전합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="philosophy section" id="philosophy">
+        <div class="container philosophy-container">
+            <div class="philosophy-content reveal">
+                <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                <h2 class="title">모든 공간에 천국과 같은<br>하늘공간을 창조하는 것이<br>우리의 목적입니다.</h2>
+                <p class="desc">
+                    하나의 아이디어에 초심의 겸손과, 하나님과 회사, 그리고 고객과의 굳건한 믿음을 바탕으로 끊임없이 도전하고 새로운 가치를 만들어내겠습니다.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Section -->
+    <section class="business section" id="business">
+        <div class="container">
+            <div class="section-title text-center reveal">
+                <h2 class="title">하스놀 사업소개</h2>
+                <p class="subtitle">제조업부터 마무리건설업까지, 하스놀의 전문 분야</p>
+            </div>
+            
+            <div class="business-tabs reveal">
+                <button class="tab-btn active" data-target="pet">반려동물제조업</button>
+                <button class="tab-btn" data-target="construction">마무리건설업</button>
+                <button class="tab-btn" data-target="csr">구제선교사업</button>
+            </div>
+
+            <div class="tab-content active" id="pet">
+                <div class="business-layout">
+                    <div class="b-text">
+                        <h3>반려동물 관련 사업</h3>
+                        <p class="b-lead">하스펫(Haspet)을 통해 프리미엄 반려동물 라이프스타일을 제안합니다.</p>
+                        <ul class="b-list">
+                            <li><i class="fa-solid fa-check text-gradient"></i> <strong>프리미엄 펫 가구:</strong> 쇼파, 침대, 카시트 등</li>
+                            <li><i class="fa-solid fa-check text-gradient"></i> <strong>펫 식품류:</strong> 건강을 생각한 사료 및 간식</li>
+                            <li><i class="fa-solid fa-check text-gradient"></i> <strong>펫 인테리어:</strong> 안전한 시설 및 전용 자재</li>
+                            <li><i class="fa-solid fa-check text-gradient"></i> <strong>주요 브랜드:</strong> 하맘파파 X 망고매트, 셀맘매트</li>
+                        </ul>
+                    </div>
+                    <div class="b-image image-pet"></div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="construction">
+                <div class="business-layout">
+                    <div class="b-text">
+                        <h3>마무리건설업 & 바닥재</h3>
+                        <p class="b-lead">안전하고 쾌적한 공간의 마무리를 책임지는 바닥재 전문 시공 및 유통.</p>
+                        <ul class="b-list">
+                            <li><i class="fa-solid fa-check text-gradient"></i> <strong>하늘매트 시공:</strong> 미끄럼 방지 및 관절 보호 설계</li>
+                            <li><i class="fa-solid fa-check text-gradient"></i> <strong>셀인매트 유통:</strong> 친환경 프리미엄 바닥재 전국 네트워크 공급</li>
+                            <li><i class="fa-solid fa-check text-gradient"></i> <strong>전문 인테리어 마감:</strong> 공간의 완성도를 높이는 디테일</li>
+                        </ul>
+                    </div>
+                    <div class="b-image image-construction"></div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="csr">
+                <div class="business-layout">
+                    <div class="b-text">
+                        <h3>사회공헌 및 후원</h3>
+                        <p class="b-lead">세상에 선한 영향력을 전하는 기업으로서 나눔을 실천합니다.</p>
+                        <ul class="b-list">
+                            <li><i class="fa-solid fa-heart text-gradient"></i> <strong>극동방송 후원:</strong> 복음 전파를 위한 미디어 사역 지원</li>
+                            <li><i class="fa-solid fa-globe text-gradient"></i> <strong>월드비전 파트너:</strong> 국내외 취약계층 아동 후원 및 자립 지원</li>
+                        </ul>
+                    </div>
+                    <div class="b-image image-csr"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- AI Smart Space Consulting -->
+    <section class="platform section" id="platform">
+        <div class="container">
+            <div class="platform-wrapper reveal">
+                <div class="p-content">
+                    <span class="badge">AI 스마트 공간 컨설팅</span>
+                    <h2 class="title">제니스 플로우 플랫폼<br>(Zenith Flow Platform)</h2>
+                    <p class="desc">
+                        하스놀의 '하늘공간 창조' 철학은 땅의 안정성을 곧 자유로운 움직임의 기반으로 재해석합니다. 반려동물을 위한 미끄럼 방지 매트의 개념을 건축적으로 승화시켜, 관절 부담을 최소화합니다.
+                    </p>
+                    <p class="desc">
+                        단순한 마찰력 증가를 넘어, 반려동물의 무게와 움직임에 따라 미세하게 밀도가 조절되는 <strong>적응형 표면(Adaptive Surface)</strong>을 갖춥니다. 구름 위를 걷는 것처럼 부드럽고 안정적인, 중력의 제약 없이 자유롭게 유영(Flow)할 수 있는 개인화된 '하늘 공간'을 경험해보세요.
+                    </p>
+                    <div class="tags">
+                        <span>#안전성</span>
+                        <span>#적응형표면</span>
+                        <span>#관절보호</span>
+                        <span>#동적환경</span>
+                    </div>
+                </div>
+                <div class="p-image-box">
+                    <div class="glass-card">
+                        <i class="fa-solid fa-brain glow-icon"></i>
+                        <h4>AI 밀도 조절</h4>
+                        <p>동작 감지를 통한 실시간 표면 최적화</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications preview -->
+    <section class="certs section gradient-bg text-center">
+        <div class="container reveal">
+            <h2 class="title" style="color:white; margin-bottom: 2rem;">검증된 기술력과 품질</h2>
+            <div class="cert-grid">
+                <a href="certs/iso9001.pdf" target="_blank" class="cert-item" style="text-decoration: none; cursor: pointer; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fa-solid fa-award"></i>
+                    <span>ISO9001 국제인증</span>
+                    <div style="font-size: 0.8rem; opacity: 0.8; margin-top: 5px;">인증서 확인 <i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+                </a>
+                <a href="certs/pet_eco.pdf" target="_blank" class="cert-item" style="text-decoration: none; cursor: pointer; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fa-solid fa-paw"></i>
+                    <span>친환경 반려동물 인증서</span>
+                    <div style="font-size: 0.8rem; opacity: 0.8; margin-top: 5px;">인증서 확인 <i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+                </a>
+                <a href="certs/atopy_eco.pdf" target="_blank" class="cert-item" style="text-decoration: none; cursor: pointer; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <i class="fa-solid fa-leaf"></i>
+                    <span>친환경 아토피 인증서</span>
+                    <div style="font-size: 0.8rem; opacity: 0.8; margin-top: 5px;">인증서 확인 <i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="f-info">
+                <h3 class="f-logo">
+                    <i class="fa-solid fa-cloud"></i> HASNOL
+                </h3>
+                <p>하늘공간을 창조하는 테크놀로지, 하스놀 주식회사</p>
+            </div>
+            <div class="f-brands">
+                <h4>OUR BRANDS</h4>
+                <div class="brands-list">
+                    <span>HASPET</span>
+                    <span>HAMAMPAPA</span>
+                    <span>MANGO MAT</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 HASNOL Co., Ltd. All Rights Reserved. | <a href="#">개인정보처리방침</a> | <a href="#">이용약관</a></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
