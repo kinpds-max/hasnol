@@ -279,14 +279,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalClose = document.querySelector('.modal-close');
     const allCertTriggers = document.querySelectorAll('.cert-item, .archive-item');
 
+    const updateLightboxImage = (item) => {
+        const savedLang = localStorage.getItem('hasnol_lang') || 'ko';
+        const suffix = (savedLang === 'ko') ? 'ko' : 'en';
+        
+        // Try specific lang img first, fallback to default
+        let imgSrc = item.getAttribute(`data-cert-img-${suffix}`);
+        if (!imgSrc) imgSrc = item.getAttribute('data-cert-img'); 
+        
+        if (imgSrc && modalImg) {
+            modalImg.src = imgSrc;
+        }
+    };
+
     allCertTriggers.forEach(item => {
         item.addEventListener('click', () => {
-            const imgSrc = item.getAttribute('data-cert-img');
-            if (imgSrc) {
-                if(modalImg) modalImg.src = imgSrc;
-                if(certModal) certModal.classList.add('active');
-                document.body.style.overflow = 'hidden'; 
-            }
+            updateLightboxImage(item);
+            if(certModal) certModal.classList.add('active');
+            document.body.style.overflow = 'hidden'; 
         });
     });
 
